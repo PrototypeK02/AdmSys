@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: whitesmoke;
+}
+
+.container {
+  display: flex;
+  position: absolute;
+}
+.circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: solid 1px rgba(15, 14, 14, 0.986);
+  left: 650px;
+  top: 400px;
+  border-radius: 50%;
+}
+
+.circle img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 60%;
+  opacity: 20%;
+}

@@ -1,0 +1,85 @@
+.layout {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  opacity: 80%;
+  z-index: 3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 400px;
+  height: 300px;
+  background-color: gray;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  border-radius: 10px;
+  z-index: 4;
+  align-items: center;
+}
+.date-button-search:hover {
+  background-color: rgb(148, 148, 196);
+  color: black;
+}
+form input {
+  text-align: center;
+  margin-right: 20px;
+}
+
+input:hover {
+  border: 4px solid rgb(88, 145, 156);
+}
+
+input:focus {
+  border: 4px solid rgb(88, 145, 156);
+}
+
+.container-btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+form button {
+  width: 48%;
+  height: 25px;
+  color: white;
+  border-radius: 5px;
+}
+
+.form-btn-cancel {
+  background-color: rgb(197, 56, 56);
+}
+
+.form-btn-cancel:hover {
+  background-color: rgb(214, 5, 5);
+}
+
+.form-btn-save {
+  background-color: rgb(75, 141, 155);
+}
+
+.form-btn-save:hover {
+  background-color: rgb(43, 94, 104);
+}
+
+form h1 {
+  text-align: center;
+  color: white;
+}
+
+select {
+  align-self: center;
+  border-radius: 5px;
+  text-align: center;
+  width: 82%;
+}
+
+.base {
+  display: none;
+}

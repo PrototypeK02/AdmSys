@@ -1,0 +1,21 @@
+td {
+  border: solid 1px gray;
+  text-align: center;
+}
+
+table {
+  position: absolute;
+  border: solid 1px gray;
+  top: 20%;
+  left: 25%;
+  width: 70%;
+  background-color: whitesmoke;
+}
+
+.table-row-gray {
+  background-color: rgb(148, 148, 196);
+}
+
+.table-row-dark {
+  background-color: rgb(95, 93, 93);
+}

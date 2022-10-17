@@ -1,0 +1,46 @@
+aside {
+  width: 400px;
+  height: 900px;
+  margin-top: 70px;
+  background-color: black;
+  position: relative;
+  box-shadow: 10px 13px 14px 2px rgb(0 0 0 / 40%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h3 {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+h3:hover {
+  background-color: rgb(148, 148, 196);
+  color: black;
+}
+input {
+  width: 80%;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-button-search {
+  margin-top: 10px;
+  width: 50%;
+  margin-left: 20px;
+  color: white;
+  border: solid 1px white;
+  border-radius: 5px;
+}
+
+.date-button-search:hover {
+  background-color: rgb(148, 148, 196);
+  color: black;
+}
