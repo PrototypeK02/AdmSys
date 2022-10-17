@@ -1,7 +1,13 @@
 import { db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import Swal from "sweetalert2";
-const createRecord = async (doc) => {
+const createRecord = async (doc, user) => {
+  if (!user) {
+    return Swal.fire({
+      icon: "error",
+      text: "Por favor ingresa con tu usuario.",
+    });
+  }
   if (
     !doc.article ||
     doc.article === "Articulo" ||
@@ -16,7 +22,7 @@ const createRecord = async (doc) => {
     });
   }
   try {
-    await addDoc(collection(db, "miki/"), {
+    await addDoc(collection(db, `${user.email}`), {
       ...doc,
       date: new Date().toISOString().split("T")[0],
       timestamp: serverTimestamp(),

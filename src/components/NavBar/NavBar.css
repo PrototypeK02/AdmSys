@@ -44,3 +44,7 @@ nav .container-menu:hover .submenu {
 .submenu button {
   border: solid 1px rgb(158, 136, 136);
 }
+
+.google {
+  margin-top: 10px;
+}

@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 const {
   REACT_APP_apiKey,
   REACT_APP_authDomain,
@@ -14,7 +15,7 @@ const {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apikey: REACT_APP_apiKey,
+  apiKey: REACT_APP_apiKey,
   authDomain: REACT_APP_authDomain,
   projectId: REACT_APP_projectId,
   storageBucket: REACT_APP_storageBucket,
@@ -25,3 +26,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const auth = getAuth(app);

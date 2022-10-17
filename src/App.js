@@ -6,15 +6,20 @@ import RecordTable from "./components/RecordTable/RecordTable";
 import "./index.css";
 import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase";
 function App() {
   const [modal, setModal] = useState(false);
   const [table, setTable] = useState(false);
   const [allData, setAllData] = useState([]);
   const [backUp, setBackUp] = useState([]);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const querySnapshot = query(collection(db, "miki"), orderBy("timestamp"));
+    const querySnapshot = query(
+      collection(db, `${user?.email}`),
+      orderBy("timestamp")
+    );
     const unsuscribe = onSnapshot(querySnapshot, (query) => {
       const send = [];
       query.forEach((doc) => {
@@ -24,11 +29,13 @@ function App() {
       setAllData(send);
       setBackUp(send);
     });
-
-    return () => unsuscribe();
-  }, []);
+    if (user) {
+      return () => unsuscribe();
+    }
+  }, [user]);
   return (
     <div>
+      {user && console.log(user)}
       <NavBar />
       <div className="container">
         <NavSide
@@ -45,7 +52,7 @@ function App() {
         </div>
       </div>
       {table && <RecordTable allData={allData} />}
-      {modal && <ModalCreate setModal={setModal} />}
+      {modal && <ModalCreate setModal={setModal} user={user} />}
     </div>
   );
 }
