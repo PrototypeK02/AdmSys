@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import "./ModalCreate.css";
 import createRecord from "../../actions/createRecord";
-
-const ModalCreate = ({ setModal }) => {
+const ModalCreate = ({ setModal, user }) => {
   const article = useRef(null);
   const unit = useRef(null);
   const unitfull = useRef(null);
@@ -15,9 +14,8 @@ const ModalCreate = ({ setModal }) => {
         <select ref={article}>
           <option className="base">Articulo</option>
           <option>G</option>
-          <option>Brownie</option>
+          <option>Browniee</option>
         </select>
-
         <input ref={unit} type="number" placeholder="Precio unidad" />
         <input
           ref={unitfull}
