@@ -31,12 +31,15 @@ const ModalCreate = ({ setModal, user }) => {
           <button
             className="form-btn-save"
             onClick={() => {
-              createRecord({
-                article: article.current.value,
-                unit: unit.current.value,
-                unitfull: unitfull.current.value,
-                quantity: quantity.current.value,
-              });
+              createRecord(
+                {
+                  article: article.current.value,
+                  unit: unit.current.value,
+                  unitfull: unitfull.current.value,
+                  quantity: quantity.current.value,
+                },
+                user
+              );
               setModal(false);
             }}
           >
