@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 import "animate.css";
-const searchDate = (date, setAllData, backUp, setTable) => {
+const searchDate = (dispatch, date, setAllData, backUp, setTable) => {
   const data = backUp.filter((el) => el.date === date);
   if (!data.length) {
     return Swal.fire({
@@ -14,8 +14,8 @@ const searchDate = (date, setAllData, backUp, setTable) => {
       },
     });
   } else {
-    setAllData(data);
-    setTable(true);
+    dispatch(setAllData(data));
+    dispatch(setTable(true));
   }
 };
 

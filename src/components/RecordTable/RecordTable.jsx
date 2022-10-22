@@ -1,6 +1,13 @@
 import React from "react";
 import "./RecordTable.css";
-const RecordTable = ({ allData }) => {
+import { useSelector, useDispatch } from "react-redux";
+import { setId, setModal, setUpdate, setStatus } from "../../redux/slices";
+import { handleRecord } from "../../actions/handleRecord";
+const RecordTable = ({ user }) => {
+  const dispatch = useDispatch();
+  const allData = useSelector((state) => state.recordsSlice.records);
+  const id = useSelector((state) => state.recordsSlice.docId);
+  const recordValue = useSelector((state) => state.recordsSlice.recordStatus);
   return (
     <div>
       <table>
@@ -27,24 +34,43 @@ const RecordTable = ({ allData }) => {
             <td>
               <strong>Total</strong>
             </td>
+            <td>
+              <strong>Acciones</strong>
+            </td>
           </tr>
         </thead>
 
         {allData && (
           <tbody>
-            {allData && console.log(allData)}
             {allData.map((el, i) => (
               <tr
                 key={i}
                 className={i % 2 === 0 ? "table-row-gray" : "table-row-dark"}
               >
-                <td>{el.article}</td>
-                <td>{el.unit}</td>
-                <td>{el.unitfull}</td>
-                <td>{el.quantity}</td>
-                <td>{el.date}</td>
-                <td>{(el.unitfull - el.unit) * el.quantity}</td>
-                <td>{el.quantity * el.unitfull}</td>
+                <td>{el.data.article}</td>
+                <td>{el.data.unit}</td>
+                <td>{el.data.unitfull}</td>
+                <td>{el.data.quantity}</td>
+                <td>{el.data.date}</td>
+                <td>{(el.data.unitfull - el.data.unit) * el.data.quantity}</td>
+                <td>{el.data.quantity * el.data.unitfull}</td>
+                <td>
+                  <select
+                    className="select"
+                    onChange={(e) => {
+                      dispatch(setId(el.id));
+                      dispatch(setStatus(e.target.value));
+                      e.target.value === "Modificar" ||
+                      e.target.value === "Crear"
+                        ? dispatch(setUpdate(true)) && dispatch(setModal(true))
+                        : handleRecord(null, user, null, id, recordValue);
+                    }}
+                  >
+                    <option className="select-option-hidden"></option>
+                    <option>Borrar</option>
+                    <option>Modificar</option>
+                  </select>
+                </td>
               </tr>
             ))}
           </tbody>

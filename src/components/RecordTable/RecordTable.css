@@ -19,3 +19,12 @@ table {
 .table-row-dark {
   background-color: rgb(95, 93, 93);
 }
+
+.select-option-hidden {
+  display: none;
+}
+
+.select {
+  max-width: 20px;
+  background-color: whitesmoke;
+}
